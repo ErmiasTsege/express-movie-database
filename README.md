@@ -1,6 +1,6 @@
 ## Table of Contents
-* [Introducton ] (#Thisproject)
+* [Introducton] 
 * [Technologies]
-* [Setup](#setup)
+* [Setup]
 
 # Movie Express Project
