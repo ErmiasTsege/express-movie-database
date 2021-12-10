@@ -1,6 +1,6 @@
 ## Table of Contents
-* [Introducton] 
-* [Technologies]
-* [Setup]
+* Introducton
+* Technologies
+* Setup
 
 # Movie Express Project
