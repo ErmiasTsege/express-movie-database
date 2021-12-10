@@ -8,8 +8,8 @@ const app = express()
 const port = 3000
 
 //Otherwise you have to JSON.parse(req.body) in each of your route handlers
-
 app.use(express.json())
+
 
 //points toward folder of static files
 app.use(express.static(path.join(__dirname, 'public')))
@@ -17,6 +17,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/movies', async (req,res) => {
     //find all instances of the Model movie
     const allMovies = await Movie.findAll()    
+    res.json(allMovies)
+})
+
+app.get('/movies/:id', async (req,res) => {
+    //find all instances of the Model movie
+    const allMovies = await Movie.findAll({where:{id:req.params.id}})    
     res.json(allMovies)
 })
 app.get('/crews', async (req,res) => {
@@ -30,51 +36,29 @@ app.get('/casts', async (req,res) => {
     res.json(allCasts)
 })
 app.post('/movies', async (req,res) => {
-    //find all instances of the Model Restaurant
-  let newMovies=await Movie.create(req.body)      
-    res.send("Movie created")
+  
+  let newMovies=await Movie.bulkCreate(req.body)      
+    res.send(newMovies?"Movie created":"Movie Failed to Created")
 })
-// app.put('/movies/:id', async (req,res) => {
-//     //find all instances of the Model Restaurant
-//   let updatedRestaurant=await Restaurant.update(req.body,{where:{id:req.params.id}})      
-//     res.send(updatedRestaurant?"Restaurant updated":"update Failed")
-// })
+app.put('/movies/:id', async (req,res) => {
+    
+  let updatedMovie=await Movie.update(req.body,{where:{id:req.params.id}})      
+    res.send(updatedMovie?"Movie updated":"update Failed")
+})
      
-// app.delete('/movies/:id', async (req,res) => {
-//     //find all instances of the Model Restaurant
-//   let deletRestaurant=await Restaurant.destroy({where:{id:req.params.id}})      
-//     res.send(deletRestaurant?"Restaurant deleted":"Delete Failed")
-// })
+app.delete('/movies/:id', async (req,res) => {
+   
+  let deletMovies=await Movie.destroy({where:{id:req.params.id}})      
+    res.send(deletMovies?"Movie deleted":"Delete Failed")
+})
      
-// //     res.send(updatedRestaurantArray?"Restaurant updated":"update Failed")
-// // })
+app.get('/search', async (req,res) => {
+   
+    let results = []    
+     results = await Movie.findAll({where:{genre: req.query.genre}})
+     res.json(results)
+   })
 
-// app.delete('/restaurants/:id', async (req,res) => {
-//     //find all instances of the Model Restaurant
-//   let deletRestaurant=await Restaurant.destroy({where:{id:req.params.id}})      
-//     res.send(deletRestaurant?"Restaurant deleted":"Delete Failed")
-// })
-// app.get('/menus', async (req,res) => {
-//     //find all instances of the Model Restaurant
-//     const allMenus = await Menu.findAll()
-//     //respond with allRestaurants as a json objeect
-//     res.json(allMenus)
-// })
-
-
-
-// app.get('/search', async (req,res) => {
-//     //find all instances of the Model Restaurant
-//     let results = []    
-//      results = await Restaurant.findAll({where:{Restaurant_name: req.query.Restaurant_name}})
-//      res.json(results)
-//    })
-// app.get('/menuitems', async (req,res) => {
-//     //find all instances of the Model Restaurant
-//     const allMenuItems = await MenuItems.findAll()
-//     //respond with allRestaurants as a json objeect
-//     res.json(allMenuItems)
-// })
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
 })
