@@ -1,10 +1,12 @@
 //import the associated models from index.js
-
+const { router } = require('express')
+const express = require('express')
 const {sequelize, Movie, Crew,Cast} = require('./index')
-
+//const app = express()
+//const port = 3000
+//app.use('http://localhost:3000',router)
 //test musician database CRUD
 describe('Movie Database', () => {
-
     beforeAll(async() => {
         //reset database
         await sequelize.sync({force:true})
@@ -99,6 +101,51 @@ describe('Movie Database', () => {
     }) 
       
 })
+
+// describe('Movie Routes', function () {
+
+//     test('responds to /', async () => {
+//       const res =await app.get('http://localhost:3000')
+//       expect(res.header['content-type']).toBe('text/html; charset=utf-8');
+//       expect(res.statusCode).toBe(200);
+//       //expect(res.text).toEqual('hello world!');
+//     });
+    
+  
+   
+
+  
+  
+    // test('responds to /hello/:name', async () => {
+    //   const res = await request(app).get('/hello/jaxnode'); 
+    //   expect(res.header['content-type']).toBe('text/html; charset=utf-8');
+    //   expect(res.statusCode).toBe(200);
+    //   expect(res.text).toEqual('hello jaxnode!');
+    // });
+  
+    // test('responds to /hello/Annie', async () => {
+    //   const res = await request(app).get('/hello/Annie'); 
+    //   expect(res.header['content-type']).toBe('text/html; charset=utf-8');
+    //   expect(res.statusCode).toBe(200);
+    //   expect(res.text).toEqual('hello Annie!');
+    // });
+ // })    
+  
+  
+//   app.listen(port, () => {
+//     console.log(`Server listening at http://localhost:${port}`)
+// })
+  
+
+
+
+
+  
+
+
+
+
+
 afterAll(async()=> {
     // await sequelize.sync({force:true})
     sequelize.close()

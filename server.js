@@ -25,16 +25,7 @@ app.get('/movies/:id', async (req,res) => {
     const allMovies = await Movie.findAll({where:{id:req.params.id}})    
     res.json(allMovies)
 })
-app.get('/crews', async (req,res) => {
-    //find all instances of the Model movie
-    const allCrews = await Crew.findAll()    
-    res.json(allCrews)
-})
-app.get('/casts', async (req,res) => {
-    //find all instances of the Model movie
-    const allCasts = await Cast.findAll()    
-    res.json(allCasts)
-})
+
 app.post('/movies', async (req,res) => {
   
   let newMovies=await Movie.bulkCreate(req.body)      
@@ -58,6 +49,56 @@ app.get('/search', async (req,res) => {
      results = await Movie.findAll({where:{genre: req.query.genre}})
      res.json(results)
    })
+app.get('/crews', async (req,res) => {
+    //find all instances of the Model movie
+    const allCrews = await Crew.findAll()    
+    res.json(allCrews)
+})
+app.post('/crews', async (req,res) => {
+  
+  let newCrews=await Crew.bulkCreate(req.body)      
+    res.send(newCrews?"crew created":"crew Failed to Created")
+})
+app.put('/crews/:id', async (req,res) => {
+    
+  let updatedCrew=await Crew.update(req.body,{where:{id:req.params.id}})      
+    res.send(updatedCrew?"Crew updated":"update Failed")
+})
+     
+app.delete('/crews/:id', async (req,res) => {
+   
+  let deletCrew=await Crew.destroy({where:{id:req.params.id}})      
+    res.send(deletCrew?"Crew deleted":"Delete Failed")
+})
+app.get('/casts', async (req,res) => {
+    //find all instances of the Model movie
+    const allCasts = await Cast.findAll()    
+    res.json(allCasts)
+})
+app.post('/casts', async (req,res) => {
+  
+  let newCasts=await Cast.bulkCreate(req.body)      
+    res.send(newCasts?"cast created":"cast Failed to Created")
+})
+app.put('/casts/:id', async (req,res) => {
+    
+  let updatedCast=await Cast.update(req.body,{where:{id:req.params.id}})      
+    res.send(updatedCast?"Cast updated":"update Failed")
+})
+     
+app.delete('/casts/:id', async (req,res) => {
+   
+  let deletCast=await Cast.destroy({where:{id:req.params.id}})      
+    res.send(deletCast?"Cast deleted":"Delete Failed")
+})
+
+
+
+
+
+
+
+
 
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
