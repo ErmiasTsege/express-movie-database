@@ -29,6 +29,9 @@ This project is created with:
 * sequelize
 * jest
 * postman
+## Testing
+<img width="680" alt="test_coverage_report" src="https://user-images.githubusercontent.com/71066745/145643916-d49d12d5-ca5d-4839-b306-0e65efa74d63.PNG">
+
 ## Setup
 In your terminal - initialize a new node project with relevant dependencies
 * npm init -y
