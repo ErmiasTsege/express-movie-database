@@ -16,4 +16,12 @@ The project plan and tasks are handled by using project managment tool jira
 
 ## Technologies 
 
-
+This project is created with:
+* Jira
+* draw.io
+* nodejs
+* express
+* sqlite
+* sequelize
+* jest
+* postman
