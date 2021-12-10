@@ -25,3 +25,4 @@ This project is created with:
 * sequelize
 * jest
 * postman
+## Setup
