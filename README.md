@@ -3,8 +3,12 @@
 
 ## Table of Contents
 * Introducton
+* Features
 * Technologies
-* Setup
+* Project Planning
+* Testing
+* Setup and Geting Started
+* Contribution Guidelines
 
 ## Introduction
 This project is developed to perform CRUD operatinos on a movie database using the Node framework.
