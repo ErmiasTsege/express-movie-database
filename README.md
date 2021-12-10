@@ -12,6 +12,7 @@
 
 ## Introduction
 This project is developed to perform CRUD operatinos on a movie database using the Node framework.
+<img width="768" alt="front-end-for our app" src="https://user-images.githubusercontent.com/71066745/145648088-af5b3551-e7fa-4f00-99a4-5472c418efca.PNG">
 
 
 ## Project Planning
@@ -46,3 +47,6 @@ In your terminal - initialize a new node project with relevant dependencies
     "test:report": "jest --coverage=true"
   },
 * Setup your SQLite3 database with a Sequelize ORM
+
+## Contribution Guidelines
+To make suggestions, create a new issue on this repo.
