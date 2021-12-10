@@ -27,12 +27,12 @@ This project is created with:
 * postman
 ## Setup
 In your terminal - initialize a new node project with relevant dependencies
-npm init -y
-npm install jest sqlite3 sequelize express
-Check your package.json to confirm that dependencies were added
-Revise scripts in package.json:
-"scripts": {
+*npm init -y
+*npm install jest sqlite3 sequelize express
+*Check your package.json to confirm that dependencies were added
+*Revise scripts in package.json:
+*"scripts": {
     "test": "jest",
     "test:report": "jest --coverage=true"
   },
-Setup your SQLite3 database with a Sequelize ORM:
+*Setup your SQLite3 database with a Sequelize ORM:
