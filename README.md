@@ -33,6 +33,9 @@ This project is created with:
 * jest
 * postman
 ## Setup
+
+Fork and clone this repository then run npm install to add the relevant dependencies. Run npm run test to seed the database and confirm tests pass. Finally, run server.js to run the express server and interact with the Routes using Postman.
+If you want to intiate a new node project:
 In your terminal - initialize a new node project with relevant dependencies
 * npm init -y
 * npm install jest sqlite3 sequelize express
