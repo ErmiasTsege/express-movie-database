@@ -35,4 +35,4 @@ In your terminal - initialize a new node project with relevant dependencies
     "test": "jest",
     "test:report": "jest --coverage=true"
   },
-* Setup your SQLite3 database with a Sequelize ORM:
+* Setup your SQLite3 database with a Sequelize ORM
