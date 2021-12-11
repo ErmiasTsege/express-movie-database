@@ -1,6 +1,6 @@
 const express = require('express')
-
 const path = require('path') //node native module
+const { check, validationResult } = require('express-validator');
 const { Movie } = require('./models/Movie')
 const { Cast } = require('./models/Cast')
 const { Crew } = require('./models/Crew')
@@ -9,8 +9,6 @@ const port = 3000
 
 //Otherwise you have to JSON.parse(req.body) in each of your route handlers
 app.use(express.json())
-
-
 //points toward folder of static files
 app.use(express.static(path.join(__dirname, 'public')))
 //GET method on /movie route returns all movies
@@ -45,8 +43,10 @@ app.delete('/movies/:id', async (req,res) => {
      
 app.get('/search', async (req,res) => {
    
-    let results = []    
-     results = await Movie.findAll({where:{genre: req.query.genre}})
+    let results = [] 
+    if(req.query.genre)   
+     {results = await Movie.findAll({where:{genre: req.query.genre}})}
+     else{results = await Movie.findAll({where:{rating: req.query.rating}})}
      res.json(results)
    })
 app.get('/crews', async (req,res) => {
@@ -92,11 +92,15 @@ app.delete('/casts/:id', async (req,res) => {
     res.send(deletCast?"Cast deleted":"Delete Failed")
 })
 
-
-
-
-
-
+//server side validation
+app.post('/movies', [
+  check('title').not().isEmpty().trim().escape()
+  ], async (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() })
+  }
+  })
 
 
 

@@ -2,15 +2,13 @@
 const { router } = require('express')
 const express = require('express')
 const {sequelize, Movie, Crew,Cast} = require('./index')
-//const app = express()
-//const port = 3000
-//app.use('http://localhost:3000',router)
-//test musician database CRUD
+
+//test movie database CRUD
 describe('Movie Database', () => {
     beforeAll(async() => {
         //reset database
         await sequelize.sync({force:true})
-        //create array of bands
+        //create array of movies
         const arrayOfMovie = [
             {title: 'Lord of the Ring',  
             genre: 'Action',
@@ -23,7 +21,7 @@ describe('Movie Database', () => {
            }
 
         ]
-        //create array of musicians
+        //create array of movies
         const arrayOfCrew =[
             {crewName: 'Director'},
             {crewName: 'Photography'},
@@ -41,7 +39,7 @@ describe('Movie Database', () => {
         await Cast.bulkCreate(arrayOfCast)
     })
 
-   // create instances of Musician Model for testin
+   // create instances of movie Model for testing
     test('Movie have genre', async() => {
         //read test instance from db
         const testMovie = await Movie.findOne({where:{title:'Note Book'}})
@@ -73,11 +71,11 @@ describe('Movie Database', () => {
        //magic sequelize add method
         await testMovie.addCrew(testCrew1)
         await testMovie.addCrew(testCrew2)
-        //retrieve list of menus in this restaurant
+        //retrieve list of crew in this crew
         const crewList = await testMovie.getCrews()
-        //assert that the list of menus is length 2
+        //assert that the list of crew is length 2
         expect(crewList.length).toBe(2)
-        //assert that the 0th index of the array menulist is an instance of the model Restaurant
+        //assert that the 0th index of the array crewlist is an instance of the model crew
         expect(crewList[0] instanceof Crew).toBeTruthy()
         expect(crewList[0].crewName).toMatch('Director')        
     }) 
@@ -91,60 +89,16 @@ describe('Movie Database', () => {
        //magic sequelize add method
         await testMovie.addCast(testCast1)
         await testMovie.addCast(testCast2)
-        //retrieve list of menus in this restaurant
+        //retrieve list of casts in this casts
         const castList = await testMovie.getCasts()
-        //assert that the list of menus is length 2
+        //assert that the list of cast is length 2
         expect(castList.length).toBe(2)
-        //assert that the 0th index of the array menulist is an instance of the model Restaurant
+        //assert that the 0th index of the array castlist is an instance of the model cast
         expect(castList[0] instanceof Cast).toBeTruthy()
         expect(castList[0].castName).toMatch('David')        
     }) 
       
 })
-
-// describe('Movie Routes', function () {
-
-//     test('responds to /', async () => {
-//       const res =await app.get('http://localhost:3000')
-//       expect(res.header['content-type']).toBe('text/html; charset=utf-8');
-//       expect(res.statusCode).toBe(200);
-//       //expect(res.text).toEqual('hello world!');
-//     });
-    
-  
-   
-
-  
-  
-    // test('responds to /hello/:name', async () => {
-    //   const res = await request(app).get('/hello/jaxnode'); 
-    //   expect(res.header['content-type']).toBe('text/html; charset=utf-8');
-    //   expect(res.statusCode).toBe(200);
-    //   expect(res.text).toEqual('hello jaxnode!');
-    // });
-  
-    // test('responds to /hello/Annie', async () => {
-    //   const res = await request(app).get('/hello/Annie'); 
-    //   expect(res.header['content-type']).toBe('text/html; charset=utf-8');
-    //   expect(res.statusCode).toBe(200);
-    //   expect(res.text).toEqual('hello Annie!');
-    // });
- // })    
-  
-  
-//   app.listen(port, () => {
-//     console.log(`Server listening at http://localhost:${port}`)
-// })
-  
-
-
-
-
-  
-
-
-
-
 
 afterAll(async()=> {
     // await sequelize.sync({force:true})

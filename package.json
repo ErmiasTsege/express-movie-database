@@ -1,28 +1,70 @@
 {
+ 
   "name": "express-movie-database",
+ 
   "version": "1.0.0",
+ 
   "description": "",
+ 
   "main": "index.js",
+ 
   "scripts": {
-    "test": "jest",
-    "test:report": "jest --coverage=true"
+ 
+   
+  "test": "jest",
+ 
+   
+  "test:report": "jest --coverage=true"
+ 
   },
-
+ 
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ErmiasTsege/express-movie-database.git"
+ 
+   
+  "type": "git",
+ 
+   
+  "url": "git+https://github.com/ErmiasTsege/express-movie-database.git"
+ 
   },
+ 
   "keywords": [],
+ 
   "author": "",
+ 
   "license": "ISC",
+ 
   "bugs": {
-    "url": "https://github.com/ErmiasTsege/express-movie-database/issues"
+ 
+   
+  "url": "https://github.com/ErmiasTsege/express-movie-database/issues"
+ 
   },
+ 
   "homepage": "https://github.com/ErmiasTsege/express-movie-database#readme",
+ 
   "dependencies": {
-    "express": "^4.17.1",
-    "jest": "^27.4.3",
-    "sequelize": "^6.12.0-beta.1",
-    "sqlite3": "^5.0.2"
+ 
+   
+  "express": "^4.17.1",
+ 
+   
+  "express-validator": "^6.14.0",
+ 
+   
+  "jest": "^27.4.3",
+ 
+   
+  "path": "^0.12.7",
+ 
+   
+  "sequelize": "^6.12.0-beta.1",
+ 
+   
+  "sqlite3": "^5.0.2",
+ 
+   
+  "supertest": "^6.1.6"
+ 
   }
 }
