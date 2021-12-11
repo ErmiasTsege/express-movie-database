@@ -13,6 +13,7 @@
 ## Introduction
 This project is developed to perform CRUD operatinos on a movie database using the Node framework.
 <img width="768" alt="front-end-for our app" src="https://user-images.githubusercontent.com/71066745/145648088-af5b3551-e7fa-4f00-99a4-5472c418efca.PNG">
+<img width="913" alt="postman" src="https://user-images.githubusercontent.com/71066745/145694211-0be502fa-13cc-4b48-95a4-1bd0b704302b.PNg">
 
 
 ## Project Planning
