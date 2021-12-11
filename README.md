@@ -47,6 +47,9 @@ In your terminal - initialize a new node project with relevant dependencies
     "test:report": "jest --coverage=true"
   },
 * Setup your SQLite3 database with a Sequelize ORM
-
+* use the below comand to run the supertest and we need to install supertest 
+ * we need to include "type":"module" in the package manager
+* NODE_OPTIONS=--experimental-vm-modules npx jest index_server.test.js 
+* when testing this code  the other futures like server.js dont work so we need to remove "type":"module" after supertest
 ## Contribution Guidelines
 To make suggestions, create a new issue on this repo.
